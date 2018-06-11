@@ -29,17 +29,17 @@ public class FirebaseAPI {
 
     private DatabaseReference database;
     private FirebaseAuth mAuth;
-    FirebaseListener listener;
+    public FirebaseListener listener;
     FirebaseUser user;
     List<MessageModel> messages;
 
-    FirebaseAPI(){
+    public FirebaseAPI(){
         database = FirebaseDatabase.getInstance().getReference(Constants.MESSAGE_REFERENCE);
         mAuth = FirebaseAuth.getInstance();
         messages = new ArrayList<>();
     }
 
-    void registerUser(String email, String password, Activity activity){
+    public void registerUser(String email, String password, Activity activity){
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(activity,
                 new OnCompleteListener<AuthResult>() {
             @Override
@@ -54,7 +54,7 @@ public class FirebaseAPI {
         });
     }
 
-    void signIn(String email, String password, Activity activity){
+    public void signIn(String email, String password, Activity activity){
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(activity, new OnCompleteListener<AuthResult>() {
                     @Override

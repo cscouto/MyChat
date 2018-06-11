@@ -7,4 +7,6 @@
     <string name="message">Message</string>
     <string name="send">Send</string>
     <string name="auth_failed">Authentication failed.</string>
+    <string name="ok">OK</string>
+    <string name="fill_fields">Please fill the fields correctly.</string>
 </resources>
