@@ -5,11 +5,15 @@ import android.os.Bundle;
 
 import com.coutocode.mychat.R;
 
+import butterknife.ButterKnife;
+
 public class ChatActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
+
+        ButterKnife.bind(this);
     }
 }
