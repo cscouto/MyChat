@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1014484537263",
+    "firebase_url": "https://flash-chat-ios-3e1e5.firebaseio.com",
+    "project_id": "flash-chat-ios-3e1e5",
+    "storage_bucket": "flash-chat-ios-3e1e5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1014484537263:android:64886749dacc31a8",
+        "android_client_info": {
+          "package_name": "com.coutocode.mychat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1014484537263-vf1thgr42leps0ckf9odkt5s5hmvevj4.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "1014484537263-vf1thgr42leps0ckf9odkt5s5hmvevj4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8uY630VF_CVK00JHPpcGsmFj_21tKrQY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

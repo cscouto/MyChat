@@ -1,19 +1,22 @@
-package com.coutocode.mychat;
+package com.coutocode.mychat.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-public class LoginActivity extends AppCompatActivity {
+import com.coutocode.mychat.R;
+
+import java.util.Objects;
+
+public class RegisterActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_register);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

@@ -1,7 +1,9 @@
-package com.coutocode.mychat;
+package com.coutocode.mychat.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.coutocode.mychat.R;
 
 public class ChatActivity extends AppCompatActivity {
 
