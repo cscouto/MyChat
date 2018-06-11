@@ -12,9 +12,9 @@ import butterknife.ButterKnife;
 
 public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
 
-    List<MessageModel> messages;
+    private List<MessageModel> messages;
 
-    ChatAdapter(List<MessageModel> messages){
+    public ChatAdapter(List<MessageModel> messages){
         this.messages = messages;
     }
 
@@ -23,7 +23,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater
                 .from(parent.getContext())
-                .inflate(R.layout.message_item, null, false);
+                .inflate(R.layout.message_item, parent, false);
         return new ViewHolder(view);
     }
 
@@ -46,7 +46,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
 
         public ViewHolder(View itemView) {
             super(itemView);
-            ButterKnife.bind(itemView);
+            ButterKnife.bind(this, itemView);
         }
 
         public void onViewBind(MessageModel message){

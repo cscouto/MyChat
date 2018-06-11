@@ -30,13 +30,14 @@ public class FirebaseAPI {
     private DatabaseReference database;
     private FirebaseAuth mAuth;
     public FirebaseListener listener;
-    FirebaseUser user;
-    List<MessageModel> messages;
+    public FirebaseUser user;
+    public List<MessageModel> messages;
 
     public FirebaseAPI(){
         database = FirebaseDatabase.getInstance().getReference(Constants.MESSAGE_REFERENCE);
         mAuth = FirebaseAuth.getInstance();
         messages = new ArrayList<>();
+        user = mAuth.getCurrentUser();
     }
 
     public void registerUser(String email, String password, Activity activity){
@@ -69,14 +70,14 @@ public class FirebaseAPI {
                 });
     }
 
-    void sendMessage(String email, String message){
+    public void sendMessage(String message){
         MessageModel messageModel = new MessageModel();
-        messageModel.sender = email;
+        messageModel.sender = user.getEmail();
         messageModel.messageBody = message;
-        database.setValue(messageModel);
+        database.push().setValue(messageModel);
     }
 
-    void observeData(){
+    public void observeData(){
         database.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
