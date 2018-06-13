@@ -44,9 +44,11 @@ public class LoginActivity extends AppCompatActivity implements FirebaseAPI.Fire
                     api.signIn(etEmail.getText().toString(), etPassword.getText().toString(),
                             LoginActivity.this);
                 }else{
-                    AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                    builder.setMessage(R.string.fill_fields).create();
-
+                    AlertDialog alert = new AlertDialog
+                            .Builder(LoginActivity.this)
+                            .setMessage(R.string.fill_fields)
+                            .create();
+                    alert.show();
                 }
             }
         });
@@ -67,8 +69,11 @@ public class LoginActivity extends AppCompatActivity implements FirebaseAPI.Fire
 
     @Override
     public void failed(int message) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-        builder.setMessage(message).create();
+        AlertDialog alert = new AlertDialog
+                .Builder(LoginActivity.this)
+                .setMessage(message)
+                .create();
+        alert.show();
     }
 
     @Override

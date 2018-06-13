@@ -7,7 +7,7 @@
     tools:context=".activities.RegisterActivity">
 
     <Button
-        android:id="@+id/btRegister"
+        android:id="@+id/btnRegister"
         android:layout_width="0dp"
         android:layout_height="@dimen/button_height"
         android:layout_marginEnd="@dimen/margin_16dp"
@@ -30,7 +30,7 @@
         android:background="@drawable/border"
         android:ems="10"
         android:hint="@string/password"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -47,7 +47,7 @@
         android:background="@drawable/border"
         android:ems="10"
         android:hint="@string/email"
-        android:inputType="textPersonName"
+        android:inputType="textEmailAddress"
         android:padding="@dimen/margin_8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

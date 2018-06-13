@@ -46,8 +46,11 @@ public class ChatActivity extends AppCompatActivity implements FirebaseAPI.Fireb
                     api.sendMessage(etMessage.getText().toString());
                     etMessage.setText("");
                 }else{
-                    AlertDialog.Builder builder = new AlertDialog.Builder(ChatActivity.this);
-                    builder.setMessage(R.string.enter_message).create();
+                    AlertDialog alert = new AlertDialog
+                            .Builder(ChatActivity.this)
+                            .setMessage(R.string.enter_message)
+                            .create();
+                    alert.show();
                 }
             }
         });

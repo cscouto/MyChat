@@ -44,9 +44,11 @@ public class RegisterActivity extends AppCompatActivity implements FirebaseAPI.F
                     api.registerUser(etEmail.getText().toString(), etPassword.getText().toString(),
                             RegisterActivity.this);
                 }else{
-                    AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
-                    builder.setMessage(R.string.fill_fields).create();
-
+                    AlertDialog alert = new AlertDialog
+                            .Builder(RegisterActivity.this)
+                            .setMessage(R.string.fill_fields)
+                            .create();
+                    alert.show();
                 }
             }
         });
@@ -69,8 +71,11 @@ public class RegisterActivity extends AppCompatActivity implements FirebaseAPI.F
 
     @Override
     public void failed(int message) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
-        builder.setMessage(message).create();
+        AlertDialog alert = new AlertDialog
+                .Builder(RegisterActivity.this)
+                .setMessage(message)
+                .create();
+        alert.show();
     }
 
     @Override
