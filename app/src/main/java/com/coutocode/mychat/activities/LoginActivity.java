@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import com.coutocode.mychat.FirebaseAPI;
 import com.coutocode.mychat.R;
 import java.util.Objects;
@@ -22,6 +23,8 @@ public class LoginActivity extends AppCompatActivity implements FirebaseAPI.Fire
     EditText etEmail;
     @BindView(R.id.etPassword)
     EditText etPassword;
+    @BindView(R.id.progressBar)
+    ProgressBar progressBar;
 
     FirebaseAPI api;
 
@@ -35,12 +38,15 @@ public class LoginActivity extends AppCompatActivity implements FirebaseAPI.Fire
 
         ButterKnife.bind(this);
 
+        progressBar.setVisibility(View.GONE);
+
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!etEmail.getText().toString().isEmpty() && !etPassword.getText().toString().isEmpty()){
+                    progressBar.setVisibility(View.VISIBLE);
                     api.signIn(etEmail.getText().toString(), etPassword.getText().toString(),
                             LoginActivity.this);
                 }else{
@@ -69,6 +75,7 @@ public class LoginActivity extends AppCompatActivity implements FirebaseAPI.Fire
 
     @Override
     public void failed(int message) {
+        progressBar.setVisibility(View.GONE);
         AlertDialog alert = new AlertDialog
                 .Builder(LoginActivity.this)
                 .setMessage(message)
@@ -78,6 +85,7 @@ public class LoginActivity extends AppCompatActivity implements FirebaseAPI.Fire
 
     @Override
     public void loggedIn() {
+        progressBar.setVisibility(View.GONE);
         startActivity(new Intent(this, ChatActivity.class));
     }
 

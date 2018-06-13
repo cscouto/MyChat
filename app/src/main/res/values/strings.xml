@@ -14,4 +14,6 @@
     <string name="logout">Logout</string>
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
+    <string name="bg_description">two guys in a boat</string>
+    <string name="woods">wood floor</string>
 </resources>

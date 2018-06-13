@@ -8,6 +8,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+
 import com.coutocode.mychat.FirebaseAPI;
 import com.coutocode.mychat.R;
 import java.util.Objects;
@@ -22,6 +24,8 @@ public class RegisterActivity extends AppCompatActivity implements FirebaseAPI.F
     EditText etEmail;
     @BindView(R.id.etPassword)
     EditText etPassword;
+    @BindView(R.id.progressBar)
+    ProgressBar progressBar;
 
     FirebaseAPI api;
 
@@ -35,12 +39,15 @@ public class RegisterActivity extends AppCompatActivity implements FirebaseAPI.F
 
         ButterKnife.bind(this);
 
+        progressBar.setVisibility(View.GONE);
+
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!etEmail.getText().toString().isEmpty() && !etPassword.getText().toString().isEmpty()){
+                    progressBar.setVisibility(View.VISIBLE);
                     api.registerUser(etEmail.getText().toString(), etPassword.getText().toString(),
                             RegisterActivity.this);
                 }else{
@@ -66,11 +73,13 @@ public class RegisterActivity extends AppCompatActivity implements FirebaseAPI.F
 
     @Override
     public void userCreated() {
+        progressBar.setVisibility(View.GONE);
         startActivity(new Intent(this, ChatActivity.class));
     }
 
     @Override
     public void failed(int message) {
+        progressBar.setVisibility(View.GONE);
         AlertDialog alert = new AlertDialog
                 .Builder(RegisterActivity.this)
                 .setMessage(message)
