@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.coutocode.mychat.R;
+import com.google.firebase.database.FirebaseDatabase;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,6 +23,9 @@ public class PresentationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_presentation);
+
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
         ButterKnife.bind(this);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {

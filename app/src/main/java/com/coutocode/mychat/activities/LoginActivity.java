@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity implements FirebaseAPI.Fire
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        api = new FirebaseAPI();
+        api = new FirebaseAPI(this);
         api.listener = this;
 
         ButterKnife.bind(this);

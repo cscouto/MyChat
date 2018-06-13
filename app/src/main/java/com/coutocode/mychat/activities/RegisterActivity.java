@@ -30,7 +30,7 @@ public class RegisterActivity extends AppCompatActivity implements FirebaseAPI.F
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        api = new FirebaseAPI();
+        api = new FirebaseAPI(this);
         api.listener = this;
 
         ButterKnife.bind(this);

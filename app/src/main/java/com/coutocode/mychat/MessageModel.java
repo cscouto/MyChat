@@ -1,6 +1,6 @@
 package com.coutocode.mychat;
 
 public class MessageModel {
-    String sender;
-    String messageBody;
+    public String sender;
+    public String messageBody;
 }

@@ -34,7 +34,7 @@ public class ChatActivity extends AppCompatActivity implements FirebaseAPI.Fireb
 
         ButterKnife.bind(this);
 
-        api =  new FirebaseAPI();
+        api =  new FirebaseAPI(this);
         api.listener = this;
         api.observeData();
 
