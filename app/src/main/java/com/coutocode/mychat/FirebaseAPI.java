@@ -70,6 +70,10 @@ public class FirebaseAPI {
                 });
     }
 
+    public void logout(){
+        mAuth.signOut();
+    }
+
     public void sendMessage(String message){
         MessageModel messageModel = new MessageModel();
         messageModel.sender = user.getEmail();
