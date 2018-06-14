@@ -44,12 +44,12 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
         @BindView(R.id.tvMessage)
         TextView tvMessage;
 
-        public ViewHolder(View itemView) {
+        private ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
 
-        public void onViewBind(MessageModel message){
+        void onViewBind(MessageModel message){
             tvUser.setText(message.sender);
             tvMessage.setText(message.messageBody);
         }
