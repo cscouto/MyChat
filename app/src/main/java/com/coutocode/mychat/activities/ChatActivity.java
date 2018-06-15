@@ -1,6 +1,5 @@
 package com.coutocode.mychat.activities;
 
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 import com.coutocode.mychat.ChatAdapter;
 import com.coutocode.mychat.FirebaseAPI;
 import com.coutocode.mychat.R;
@@ -48,11 +48,10 @@ public class ChatActivity extends AppCompatActivity implements FirebaseAPI.Fireb
                     api.sendMessage(etMessage.getText().toString());
                     etMessage.setText("");
                 }else{
-                    AlertDialog alert = new AlertDialog
-                            .Builder(ChatActivity.this)
-                            .setMessage(R.string.enter_message)
-                            .create();
-                    alert.show();
+                    Toast.makeText(ChatActivity.this,
+                            R.string.enter_message,
+                            Toast.LENGTH_LONG)
+                            .show();
                 }
             }
         });
@@ -83,7 +82,7 @@ public class ChatActivity extends AppCompatActivity implements FirebaseAPI.Fireb
     public void userCreated() { }
 
     @Override
-    public void failed(int message) { }
+    public void failed(String message) { }
 
     @Override
     public void loggedIn() { }

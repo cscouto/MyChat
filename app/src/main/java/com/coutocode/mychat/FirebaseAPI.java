@@ -24,12 +24,13 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class FirebaseAPI {
 
     public interface FirebaseListener {
         void userCreated();
-        void failed(int message);
+        void failed(String message);
         void loggedIn();
         void newMessage();
     }
@@ -58,7 +59,7 @@ public class FirebaseAPI {
                     user = mAuth.getCurrentUser();
                     listener.userCreated();
                 } else {
-                    listener.failed(R.string.auth_failed);
+                    listener.failed(Objects.requireNonNull(task.getException()).getMessage());
                 }
             }
         });
@@ -73,7 +74,7 @@ public class FirebaseAPI {
                             user = mAuth.getCurrentUser();
                             listener.loggedIn();
                         } else {
-                            listener.failed(R.string.auth_failed);
+                            listener.failed(Objects.requireNonNull(task.getException()).getMessage());
                         }
                     }
                 });
@@ -116,7 +117,9 @@ public class FirebaseAPI {
             public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) { }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) { }
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                listener.failed(databaseError.getMessage());
+            }
         });
     }
 

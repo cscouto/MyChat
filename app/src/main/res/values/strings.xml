@@ -13,4 +13,5 @@
     <string name="logout">Logout</string>
     <string name="bg_description">two guys in a boat</string>
     <string name="woods">wood floor</string>
+    <string name="no_internet">There is no internet connection.</string>
 </resources>
